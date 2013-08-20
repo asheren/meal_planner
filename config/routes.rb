@@ -1,5 +1,9 @@
 MealPlanner::Application.routes.draw do
+  get 'tags/:tag', to: 'recipes#index', as: :tag
   resources :recipes
+  root to: 'recipes#index'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
