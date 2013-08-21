@@ -1,11 +1,5 @@
 <%- model_class = Recipe -%>
 
-<div id="tag cloud">
-  <%= tag_cloud Recipe.tag_counts, %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
-</div>
-
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
@@ -13,14 +7,13 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>Recipe ID</th>
       <th>Tags</th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:recipe_id) %></th>
-      <th><%= model_class.human_attribute_name(:cook_on) %></th>
-      <th><%= model_class.human_attribute_name(:recipe_link) %></th>
-      <th><%= model_class.human_attribute_name(:recipe_description) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>Recipe Name</th>
+      <th>Cook On</th>
+      <th>Recipe Link</th>
+      <th>Recipe Description</th>
+      <th>Created at</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -32,7 +25,6 @@
           Tags: <%= raw recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> 
         </td>
         <td><%= recipe.name %></td>
-        <td><%= recipe.recipe_id %></td>
         <td><%= recipe.cook_on %></td>
         <td><%= recipe.recipe_link %></td>
         <td><%= recipe.recipe_description %></td>
