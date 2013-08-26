@@ -11,28 +11,26 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Recipe ID</th>
-      <th>Tags</th>
       <th>Recipe Name</th>
+      <th>Recipe ID</th>
       <th>Cook On</th>
       <th>Recipe Link</th>
       <th>Recipe Description</th>
-      <th>Created at</th>
+      <th>Tags</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
-        <td><%= link_to recipe.id, recipe_path(recipe) %></td>
-        <td>
-          Tags: <%= raw recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> 
-        </td>
         <td><%= recipe.name %></td>
+        <td><%= link_to recipe.id, recipe_path(recipe) %></td>
         <td><%= recipe.cook_on %></td>
-        <td><%= recipe.recipe_link %></td> 
+        <td><%= link_to recipe.recipe_link, recipe.recipe_link, target: "_new" %></td> 
         <td><%= recipe.recipe_description %></td>
-        <td><%=l recipe.created_at %></td>
+        <td>
+            <%= raw recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> 
+        </td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_recipe_path(recipe), :class => 'btn btn-mini' %>

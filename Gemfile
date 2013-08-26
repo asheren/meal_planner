@@ -11,6 +11,7 @@ gem 'less-rails'
 gem 'jquery-ui-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'acts-as-taggable-on'
+gem 'quiet_assets'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -42,6 +43,7 @@ group :development, :test do
 	gem 'sqlite3'
 	gem 'pry-rails'
 	gem 'pry-nav'
+	gem 'thin'
 end
 
 group :production do

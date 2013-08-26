@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130826171736) do
+ActiveRecord::Schema.define(version: 20130826224308) do
 
   create_table "calendars", force: true do |t|
     t.string   "calendar"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20130826171736) do
     t.string   "recipe_description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "cook_on"
+    t.date     "cook_on",            default: '2013-08-26'
   end
 
   create_table "static_pages", force: true do |t|

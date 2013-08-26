@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
   jQuery ->
     $('.datepicker').datepicker({
-    		format: 'mm-dd-yyyy'
+    		format: 'yyyy-mm-dd'
     });
 
   

@@ -14,7 +14,8 @@ MealPlanner::Application.routes.draw do
   get '/path1', to: 'recipes#index'
   get '/path2', to: 'static_pages#about'
   get '/path3', to: 'static_pages#help'
-  get '/path4', to: 'calendar#calendar'
+
+  resource :calendar, only: :show
 
 
 
