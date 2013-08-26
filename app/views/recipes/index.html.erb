@@ -4,6 +4,10 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_recipe_path,
+            :class => 'btn btn-primary' %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -26,7 +30,7 @@
         </td>
         <td><%= recipe.name %></td>
         <td><%= recipe.cook_on %></td>
-        <td><%= recipe.recipe_link %></td>
+        <td><%= recipe.recipe_link %></td> 
         <td><%= recipe.recipe_description %></td>
         <td><%=l recipe.created_at %></td>
         <td>
@@ -42,7 +46,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_recipe_path,
-            :class => 'btn btn-primary' %>

@@ -1,4 +1,7 @@
 MealPlanner::Application.routes.draw do
+  get "static_pages/home"
+  get "static_pages/about"
+  get "static_pages/help"
   resources :ideas
   get 'ideas_path', to: 'ideas#index'
 
@@ -6,6 +9,11 @@ MealPlanner::Application.routes.draw do
   get 'tags/:tag', to: 'recipes#index', as: :tag
   resources :recipes
   root to: 'recipes#index'
+
+  get '/path1', to: 'recipes#index'
+  get '/path2', to: 'static_pages#about'
+  get '/path3', to: 'static_pages#help'
+
 
 
 

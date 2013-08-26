@@ -21,6 +21,12 @@ class IdeasController < ApplicationController
   def edit
   end
 
+  def schedule
+    respond_to do |format|
+      format.html { redirect_to @recipe.edit }
+    end
+  end
+
   # POST /ideas
   # POST /ideas.json
   def create
