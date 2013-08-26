@@ -1,4 +1,3 @@
-#require "recipe"
 class CalendarController < ApplicationController
    def calendar
    	@recipes = Recipe.all
