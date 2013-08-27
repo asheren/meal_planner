@@ -21,7 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @recipes.each do |recipe| %>
+    <% @recipes.sort_by(&:cook_on).each do |recipe| %>
       <tr>
         <td><%= recipe.name %></td>
         <td><%= link_to recipe.id, recipe_path(recipe) %></td>
