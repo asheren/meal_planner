@@ -20,7 +20,7 @@
       <tr>
         <td><%= link_to idea.id, idea_path(idea) %></td>
         <td><%= idea.name %></td>
-        <td><%= idea.link %></td>
+        <td><%= link_to idea.link, idea.link, target: "_new" %></td>
         <td><%=l idea.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

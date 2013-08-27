@@ -1,19 +1,20 @@
 <%- model_class = Recipe -%>
+
 <div class="page-header">
   <h1><%=t 'Meals Planned', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong>Recipe Name:</strong></dt>
-  <dd><%= @recipe.name %></dd>
+  <dd><%= not_applicable? @recipe.name %></dd>
   <dt><strong>Cook On:</strong></dt>
-  <dd><%= @recipe.cook_on %></dd>
+  <dd><%= not_applicable? @recipe.cook_on %></dd>
   <dt><strong>Recipe Link:</strong></dt>
-  <dd><%= @recipe.recipe_link %></dd>
+  <dd><%= not_applicable? @recipe.recipe_link %></dd>
   <dt><strong>Recipe Description:</strong></dt>
-  <dd><%= @recipe.recipe_description %></dd>
+  <dd><%= not_applicable? @recipe.recipe_description %></dd>
   <dt><strong>Tags:</strong></dt>
-  <dd><%= @recipe.tag_list %></dd>
+  <dd><%= not_applicable? @recipe.tag_list %></dd>
 </dl>
 
 <div class="form-actions">
