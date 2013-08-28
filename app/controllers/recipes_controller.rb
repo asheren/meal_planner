@@ -1,12 +1,13 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+
   # GET /recipes
   # GET /recipes.json
   def index
     if params[:tag]
       @recipes = Recipe.tagged_with(params[:tag])
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.recipes_scheduled
     end
   end
 
@@ -52,6 +53,10 @@ class RecipesController < ApplicationController
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def unscheduled
+    @recipes_unscheduled = Recipe.recipes_unscheduled
   end
 
   # DELETE /recipes/1

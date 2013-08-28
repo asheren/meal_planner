@@ -11,7 +11,7 @@
       <th>ID</th>
       <th>Name</th>
       <th>Link</th>
-      <th>Created At</th>
+      <th>Tags</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -21,7 +21,9 @@
         <td><%= link_to idea.id, idea_path(idea) %></td>
         <td><%= idea.name %></td>
         <td><%= link_to idea.link, idea.link, target: "_new" %></td>
-        <td><%=l idea.created_at %></td>
+         <td>
+            <%= raw idea.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> 
+        </td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_idea_path(idea), :class => 'btn btn-mini' %>

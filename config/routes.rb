@@ -3,17 +3,20 @@ MealPlanner::Application.routes.draw do
   get "static_pages/home"
   get "static_pages/about"
   get "static_pages/help"
-  resources :ideas
-  get 'ideas_path', to: 'ideas#index'
 
+  #resources :ideas
+  
 
-  get 'tags/:tag', to: 'recipes#index', as: :tag
-  resources :recipes
+  #get 'tags/:tag', to: 'ideas#index', as: :tag
+  #map.resources :recipes, :collection => { :cooked => :get }
+  resources :recipes 
+
   root to: 'recipes#index'
-
+  get 'tags/:tag', to: 'recipes#index', as: :tag
   get '/path1', to: 'recipes#index'
   get '/path2', to: 'static_pages#about'
   get '/path3', to: 'static_pages#help'
+  get '/unscheduled', to: 'recipes#unscheduled'
 
   resource :calendar, only: :show
 

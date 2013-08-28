@@ -1,4 +1,4 @@
-<%- model_class = Idea -%>
+ <%- model_class = Idea -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
@@ -8,6 +8,8 @@
   <dd><%= @idea.name %></dd>
   <dt><strong>Link:</strong></dt>
   <dd><%= @idea.link %></dd>
+  <dt><strong>Tags:</strong></dt>
+  <dd><%= @idea.tag_list %></dd>
 </dl>
 
 <div class="form-actions">

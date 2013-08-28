@@ -7,34 +7,27 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_recipe_path,
             :class => 'btn btn-primary' %>
-
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Recipe Name</th>
-      <th>Recipe ID</th>
-      <th>Cook On</th>
-      <th>Recipe Link</th>
-      <th>Recipe Description</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Link</th>
       <th>Tags</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
-    <% @recipes.sort_by(&:cook_on).each do |recipe| %>
+    <% @recipes_unscheduled.each do |recipe| %>
       <tr>
-        <td><%= recipe.name %></td>
         <td><%= link_to recipe.id, recipe_path(recipe) %></td>
-        <td><%= recipe.cook_on %></td>
-        <td><%= link_to recipe.recipe_link, recipe.recipe_link, target: "_new" %></td> 
-        <td><%= recipe.recipe_description %></td>
-        <td>
+        <td><%= recipe.name %></td>
+        <td><%= link_to recipe.recipe_link, recipe.recipe_link, target: "_new" %></td>
+         <td>
             <%= raw recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> 
         </td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_recipe_path(recipe), :class => 'btn btn-mini' %>
-          <%= link_to t('.cooked', :default => t("helpers.links.cooked")),
                       edit_recipe_path(recipe), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       recipe_path(recipe),
@@ -46,3 +39,5 @@
     <% end %>
   </tbody>
 </table>
+
+
