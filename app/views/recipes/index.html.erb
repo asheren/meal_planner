@@ -35,7 +35,10 @@
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_recipe_path(recipe), :class => 'btn btn-mini' %>
           <%= link_to t('.cooked', :default => t("helpers.links.cooked")),
-                      edit_recipe_path(recipe), :class => 'btn btn-mini' %>
+                      recipe_path(recipe,
+                                  :recipe => {:cook_on => nil}),
+                      :method => :put,
+                      :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       recipe_path(recipe),
                       :method => :delete,

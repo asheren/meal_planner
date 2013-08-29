@@ -8,4 +8,6 @@ class Recipe < ActiveRecord::Base
 	def self.recipes_scheduled
 		where.not(cook_on: nil)
 	end
+
+
 end

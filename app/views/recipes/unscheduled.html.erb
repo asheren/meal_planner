@@ -29,6 +29,8 @@
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_recipe_path(recipe), :class => 'btn btn-mini' %>
+          <%= link_to t('.schedule', :default => t("helpers.links.schedule")),
+                      edit_recipe_path(recipe), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       recipe_path(recipe),
                       :method => :delete,
