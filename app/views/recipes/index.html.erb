@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Links I like</title>
+</head>
+<link rel="stylesheet"href="stylesheets/recipes.css.scss">
+
+<body>
 <%- model_class = Recipe -%>
 
 <div class="page-header">
@@ -6,7 +15,7 @@
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_recipe_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn btn-large btn-primary' %>
 
 <table class="table table-striped">
   <thead>
@@ -33,12 +42,12 @@
         </td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_recipe_path(recipe), :class => 'btn btn-mini' %>
+                      edit_recipe_path(recipe), :class => 'btn btn-mini btn-info' %>
           <%= link_to t('.cooked', :default => t("helpers.links.cooked")),
                       recipe_path(recipe,
                                   :recipe => {:cook_on => nil}),
                       :method => :put,
-                      :class => 'btn btn-mini' %>
+                      :class => 'btn btn-mini btn-success' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       recipe_path(recipe),
                       :method => :delete,
@@ -49,3 +58,5 @@
     <% end %>
   </tbody>
 </table>
+</body>
+</html>
