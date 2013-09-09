@@ -1,8 +1,18 @@
-<%- model_class = Recipe -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Test</title>
+</head>
+<link rel="stylesheet"href="stylesheets/recipes.css.scss">
+
+<body><%- model_class = Recipe -%>
 
 <div class="page-header">
   <h1><%=t 'Meals Planned', :default => model_class.model_name.human.titleize %></h1>
 </div>
+
+
 
 <dl class="dl-horizontal">
   <dt><strong>Recipe Name:</strong></dt>
