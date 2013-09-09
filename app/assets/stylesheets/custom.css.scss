@@ -62,12 +62,31 @@
 
 /* Table Structure */
 
-tr {
-  color: #F0F;
-  background-color: #b11095;
+th {
+  color: #07221a;
+  background-color: #dc31ed;
+}
+
+td {
+  color: #07221a;
+  background-color: #21a8f2;
 }
 
 table {
-  background-color: #1034b1;
+  color: #07221a;
+  background-color: #21a8f2;
   border: 4px solid;
+  padding-top: 20px;
+}
+
+a:hover {
+    color: #2010b1;
+    background-color: #4510b1;
+}
+
+.btn {
+  color: #ffffff;
+  margin-bottom: 3px;
+  font-style: italic;
+  font-variant: small-caps;
 }
