@@ -16,12 +16,12 @@ h1 {
 
 img {
   margin: 10px;
-  border: 2px #f146ac;
+  border: 2px black;
 }
 
 img:hover {
   margin: 10px;
-  border: 2px #f146ac;
+  border: 5px black;
   transition-duration: 1s;
   border-radius: 50%;
 }
@@ -35,6 +35,14 @@ img:hover {
 
 /* Table Structure */
 
+a {
+  color: #0b0b09;
+}
+
+a:hover {
+  background: #faf82e;
+}
+
 th {
   color: #07221a;
   background-color: #dc31ed;
@@ -42,7 +50,7 @@ th {
 }
 
 td {
-  color: #07221a;
+  color: #0b0b09;
   background-color: #21a8f2;
   font-family: "Lucida Grande", arial, helvetica, sans-serif;
 }
@@ -55,10 +63,7 @@ table {
   font-family: "Lucida Grande", arial, helvetica, sans-serif;
 }
 
-a:hover {
-    color: #f0f146;
-    background-color: #f0f146;
-}
+
 
 .btn {
   color: #ffffff;

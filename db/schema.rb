@@ -33,15 +33,7 @@ ActiveRecord::Schema.define(version: 20130826224308) do
     t.string   "recipe_description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "cook_on",            default: '2013-08-26'
-  end
-
-  create_table "static_pages", force: true do |t|
-    t.string   "home"
-    t.string   "about"
-    t.string   "help"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.date     "cook_on",            default: '2013-09-10'
   end
 
   create_table "taggings", force: true do |t|

@@ -9,6 +9,7 @@
 /* user profiles */
 .container h1 {
   height: 40px;
+  width: 110px;
   color: #f9f41f;
   background-color: #1fa8f9;
   padding: 0 10px 10px 10px;
@@ -37,15 +38,6 @@ table {
 }
 
 
-a {
-  color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #f0f146;
-    background-color: #f0f146;
-  }
-}
+
 
 
