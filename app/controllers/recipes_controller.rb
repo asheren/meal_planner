@@ -4,10 +4,15 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
+    @recipes = params[:unscheduled_only] ? Recipe.recipes_unscheduled : Recipe.recipes_scheduled
+    # if params[:scheduled_only]
+    #   @recipes = Recipe.recipes_scheduled
+    # else
+    #   @recipes = Recipe.all
+    # end
+
     if params[:tag]
-      @recipes = Recipe.tagged_with(params[:tag])
-    else
-      @recipes = Recipe.recipes_scheduled
+      @recipes = @recipes.tagged_with(params[:tag])
     end
   end
 

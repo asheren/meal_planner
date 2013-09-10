@@ -24,7 +24,7 @@
         <td><%= recipe.name %></td>
         <td><%= link_to recipe.recipe_link, recipe.recipe_link, target: "_new" %></td>
          <td>
-            <%= raw recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> 
+            <%= raw recipe.tag_list.map { |t| link_to t, tag_path(t, unscheduled_only: true) }.join(', ') %> 
         </td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
