@@ -5,54 +5,14 @@
 
 /* @import "bootstrap"; */
 
-#cssmenu ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  width: auto;
-  position: relative;
-  display: block;
-  height: 30px;
-  font-size: 12px;
-  font-weight: bold;
-  background: transparent url(nav_bg.png) repeat-x top left;
-  font-family: Arial, Helvetica, sans-serif;
-  border-bottom: 1px solid #000000;
-  border-top: 1px solid #000000;
-}
-#cssmenu li {
-  display: block;
-  float: left;
-  margin: 0;
-  padding: 0;
-}
-#cssmenu li a {
-  display: block;
-  float: left;
-  color: #999999;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 20px 0 20px;
-}
-#cssmenu li a:hover {
-  color: #FFFFFF;
-  height: 22px;
-  background: transparent url(nav_bg.png) 0px -30px no-repeat;
-}
-#cssmenu li.active a {
-  display: inline;
-  height: 22px;
-  background: transparent url(nav_bg.png) 0px -30px no-repeat;
-  float: left;
-  margin: 0;
-}
 
 /* user profiles */
-.users {
+.container h1 {
   height: 40px;
   color: #f9f41f;
   background-color: #1fa8f9;
   padding: 0 10px 10px 10px;
+  font-family: "Lucida Grande", arial, helvetica, sans-serif;
 }
 
 .images {
@@ -63,19 +23,22 @@
 .page-header {
   color: #6024a8;
   font-weight: bold;
+  font-family: "Lucida Grande", arial, helvetica, sans-serif;
 }
 
 /* Table Structure */
 
 tr {
-  color: #F0F;
+  color: #07221a;
   background-color: #b11095;
+  font-family: "Lucida Grande", arial, helvetica, sans-serif;
 }
 
 table {
+  color: #07221a;
   background-color: #1034b1;
   border: 4px solid;
-  font-family: lobster, museo, sans-serif, helvetica, veranda;
+  font-family: "Lucida Grande", arial, helvetica, sans-serif;
 }
 
 
@@ -85,8 +48,8 @@ a {
     color: #666;
   }
   &:hover {
-    color: #03F;
-    background-color: #e7f221;
+    color: #f0f146;
+    background-color: #f0f146;
   }
 }
 
