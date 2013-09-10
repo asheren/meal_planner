@@ -10,9 +10,9 @@ describe Recipe do
   it "has an array of tags" do 
   	expect(recipes.tags).to eq([])
   end
-end
+#end
 
-describe Tags do
+#describe Tags do
 
 	it "should be connected to a user" do 
 		expect(tags).to respond_to(:link_to)
@@ -25,5 +25,6 @@ describe Tags do
 	it "should sort based on the user" do 
 		expect(tags).to respond_to(:user)
 	end
+end
 
 
