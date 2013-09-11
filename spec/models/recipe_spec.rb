@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Recipe do
 
   it "has an array of tags" do 
-  	expect(recipes.tags).to eq([])
+  	expect(recipe.tags).to eq([])
   end
 #end
 

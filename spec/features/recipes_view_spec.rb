@@ -21,7 +21,7 @@ describe "working with recipes", :type => :feature do
 	end
 
 	context "when creating a new recipe" do
-		let(:baked_ziti) { Recipe.new name: 'Baked Ziti', link: 'http://www.food52.com' }
+		let(:baked_ziti) { Recipe.new name: 'Baked Ziti', recipe_link: 'http://www.food52.com' }
 
 		def add_new_recipe(recipe)
 			within('#recipe') do

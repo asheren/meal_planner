@@ -10,8 +10,8 @@
 <body>
   <div class="container">
     <h1> Users</h1>
-      <%= image_tag "medi.jpg", size: "150x150", :alt => "picture of meredith" %>
-      <%= image_tag "colin.jpg", size: "150x150", :alt => "picture of colin" %>
+      <%= link_to(image_tag("medi.jpg", size: "150x150", :alt => "picture of meredith"), "/tags/Medi meal") %>
+      <%= link_to(image_tag("colin.jpg", size: "150x150", :alt => "picture of colin"), "/tags/colin meal") %>
   </div>
 </body>
 
