@@ -14,6 +14,7 @@ gem 'jquery-ui-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'acts-as-taggable-on'
 gem 'quiet_assets'
+gem 'ransack'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
