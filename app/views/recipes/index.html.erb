@@ -19,14 +19,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
- <%= search_form_for @search do |f| %>
-                  <div class="field"> 
-                      <%= f.label :name_cont, "Name contains" %>
-                      <%= f.text_field :name_cont %>
-                    </div>
-                    <div class="actions"> 
-                      <%= f.submit "Search" %> </div>
-                  <% end %>
+
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_recipe_path,

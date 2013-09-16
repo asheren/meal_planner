@@ -8,6 +8,14 @@
             new_recipe_path,
             :class => 'btn btn-primary' %>
 
+ <%= search_form_for @search do |f| %>
+                  <div class="field"> 
+                      <%= f.label :name_cont, "Name contains" %>
+                      <%= f.text_field :name_cont %>
+                    </div>
+                    <div class="actions"> 
+                      <%= f.submit "Search" %> </div>
+                  <% end %>
 
 <table class="table table-striped">
   <thead>
