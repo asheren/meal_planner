@@ -7,8 +7,9 @@ class RecipesController < ApplicationController
 
     search = params[:unscheduled_only] ? Recipe.recipes_unscheduled : Recipe.recipes_scheduled
     search = search.tagged_with(params[:tag]) if params[:tag]
-    @recipes = search.search(params[:q]).result
-    #@count = @recipes.count
+    @search = search.search(params[:q])
+    @recipes = @search.result
+
     # if params[:scheduled_only]
     #   @recipes = Recipe.recipes_scheduled
     # else
