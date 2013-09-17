@@ -18,6 +18,13 @@ class RecipesController < ApplicationController
 
   end
 
+  def unscheduled
+    recipes_unscheduled = Recipe.recipes_unscheduled
+    @search = recipes_unscheduled.search(params[:q])
+    @recipes_unscheduled = @search.result
+  end
+
+
   # GET /recipes/1
   # GET /recipes/1.json
   def show
@@ -62,10 +69,7 @@ class RecipesController < ApplicationController
     end
   end
 
-  def unscheduled
-    @recipes_unscheduled = Recipe.recipes_unscheduled
-  end
-
+ 
   # DELETE /recipes/1
   # DELETE /recipes/1.json
   def destroy
