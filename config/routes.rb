@@ -1,18 +1,15 @@
 MealPlanner::Application.routes.draw do
-  get "calendar/calendar"
-  
-
   #resources :ideas
-  
+
 
   #get 'tags/:tag', to: 'ideas#index', as: :tag
   #map.resources :recipes, :collection => { :cooked => :get }
-  resources :recipes 
+  resources :recipes
 
   root to: 'recipes#index'
   get 'tags/:tag', to: 'recipes#index', as: :tag
   get '/path1', to: 'recipes#index'
-  
+
   get '/unscheduled', to: 'recipes#unscheduled'
 
   resource :calendar, only: :show
@@ -68,7 +65,7 @@ MealPlanner::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
