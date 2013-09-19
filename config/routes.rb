@@ -1,9 +1,5 @@
 MealPlanner::Application.routes.draw do
-  #resources :ideas
 
-
-  #get 'tags/:tag', to: 'ideas#index', as: :tag
-  #map.resources :recipes, :collection => { :cooked => :get }
   resources :recipes
 
   root to: 'recipes#index'
