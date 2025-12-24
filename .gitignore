@@ -14,3 +14,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore environment files (contain secrets)
+.env
+.env.local
+.env.*.local
+
+# Ignore bundler installed gems
+/vendor/bundle

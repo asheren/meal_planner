@@ -1,2 +1,2 @@
-class StaticPages < ActiveRecord::Base
+class StaticPages < ApplicationRecord
 end

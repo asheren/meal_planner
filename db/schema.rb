@@ -13,30 +13,30 @@
 
 ActiveRecord::Schema.define(version: 20130826224308) do
 
-  create_table "calendars", force: true do |t|
+  create_table "calendars", force: :cascade do |t|
     t.string   "calendar"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "ideas", force: true do |t|
+  create_table "ideas", force: :cascade do |t|
     t.string   "name"
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "recipes", force: true do |t|
+  create_table "recipes", force: :cascade do |t|
     t.string   "name"
     t.integer  "recipe_id"
     t.string   "recipe_link"
     t.string   "recipe_description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "cook_on",            default: '2013-09-10'
+    t.date     "cook_on",            default: '2025-12-24'
   end
 
-  create_table "taggings", force: true do |t|
+  create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
     t.string   "taggable_type"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20130826224308) do
   add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
   add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
 
-  create_table "tags", force: true do |t|
+  create_table "tags", force: :cascade do |t|
     t.string "name"
   end
 

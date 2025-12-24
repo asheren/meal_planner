@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-MealPlanner::Application.config.secret_key_base = '469dddf23f07177368c697dda9503d9276d67204877d4e666f88329d87cedd2ec149933dbf15ffd8a6074714b3206c1a271f7e1c311d5fe00fc06c74a9eb409f'
+MealPlanner::Application.config.secret_key_base = ENV['SECRET_KEY_BASE'] || raise("SECRET_KEY_BASE environment variable is not set")

@@ -1,4 +1,4 @@
-class Recipe < ActiveRecord::Base
+class Recipe < ApplicationRecord
 	acts_as_taggable_on :tags
 	
 	def self.recipes_unscheduled

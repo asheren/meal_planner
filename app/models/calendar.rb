@@ -1,2 +1,2 @@
-class Calendar < ActiveRecord::Base
+class Calendar < ApplicationRecord
 end
