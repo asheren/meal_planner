@@ -1,34 +1,38 @@
-<%= form_for @recipe, html: { class: 'needs-validation' } do |f| %>
+<div class="card-custom p-4">
+  <%= form_for @recipe, html: { class: 'needs-validation' } do |f| %>
 
-  <div class="mb-3">
-    <%= f.label :name, class: 'form-label' %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
+    <div class="mb-4">
+      <%= f.label :name, "Recipe Name", class: 'form-label' %>
+      <%= f.text_field :name, class: 'form-control', placeholder: 'Enter recipe name' %>
+    </div>
 
-  <%= f.hidden_field :recipe_id %>
+    <%= f.hidden_field :recipe_id %>
 
-  <div class="mb-3">
-    <%= f.label :cook_on, class: 'form-label' %>
-    <%= f.text_field :cook_on, class: 'form-control datepicker', placeholder: 'YYYY-MM-DD' %>
-  </div>
+    <div class="mb-4">
+      <%= f.label :cook_on, "Cook On Date", class: 'form-label' %>
+      <%= f.text_field :cook_on, class: 'form-control datepicker', placeholder: 'Click to select date' %>
+      <div class="form-text">Leave blank for unscheduled recipes</div>
+    </div>
 
-  <div class="mb-3">
-    <%= f.label :recipe_link, class: 'form-label' %>
-    <%= f.text_field :recipe_link, class: 'form-control', placeholder: 'https://...' %>
-  </div>
+    <div class="mb-4">
+      <%= f.label :recipe_link, "Recipe URL", class: 'form-label' %>
+      <%= f.text_field :recipe_link, class: 'form-control', placeholder: 'https://example.com/recipe' %>
+    </div>
 
-  <div class="mb-3">
-    <%= f.label :recipe_description, class: 'form-label' %>
-    <%= f.text_area :recipe_description, class: 'form-control', rows: 3 %>
-  </div>
+    <div class="mb-4">
+      <%= f.label :recipe_description, "Description", class: 'form-label' %>
+      <%= f.text_area :recipe_description, class: 'form-control', rows: 4, placeholder: 'Add notes about this recipe...' %>
+    </div>
 
-  <div class="mb-3">
-    <%= f.label :tag_list, "Tags (separated by commas)", class: 'form-label' %>
-    <%= f.text_field :tag_list, class: 'form-control' %>
-  </div>
+    <div class="mb-4">
+      <%= f.label :tag_list, "Tags", class: 'form-label' %>
+      <%= f.text_field :tag_list, class: 'form-control', placeholder: 'vegetarian, quick, weeknight' %>
+      <div class="form-text">Separate tags with commas</div>
+    </div>
 
-  <div class="d-flex gap-2">
-    <%= f.submit nil, class: 'btn btn-primary' %>
-    <%= link_to "Cancel", recipes_path, class: 'btn btn-outline-secondary' %>
-  </div>
-<% end %>
+    <div class="d-flex gap-2 pt-2">
+      <%= f.submit (@recipe.new_record? ? "Create Recipe" : "Update Recipe"), class: 'btn btn-primary' %>
+      <%= link_to "Cancel", recipes_path, class: 'btn btn-outline-secondary' %>
+    </div>
+  <% end %>
+</div>

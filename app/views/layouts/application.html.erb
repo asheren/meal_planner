@@ -12,53 +12,41 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">MealPlanner</a>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+      <div class="container">
+        <a class="navbar-brand" href="/">Meal Planner</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto">
-            <li class="nav-item"><%= link_to "Home", "/", class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "About Us", "/path2", class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Scheduled", "/", class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Unscheduled", "/unscheduled", class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Calendar", calendar_path, class: "nav-link" %></li>
             <li class="nav-item"><%= link_to "Recipe Sites", "/path5", class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "About", "/path2", class: "nav-link" %></li>
             <li class="nav-item"><%= link_to "Help", "/path3", class: "nav-link" %></li>
           </ul>
           <%= search_form_for @search, class: "d-flex" do |f| %>
-            <%= f.text_field :name_cont, class: "form-control me-2", placeholder: "Search recipes..." %>
+            <%= f.text_field :name_cont, class: "form-control", placeholder: "Search recipes..." %>
           <% end %>
         </div>
       </div>
     </nav>
 
-    <div class="container-fluid mt-4">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card">
-            <div class="card-header">More Options</div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><%= link_to "Home", "/" %></li>
-              <li class="list-group-item"><%= link_to "Unscheduled Recipes", "/unscheduled" %></li>
-              <li class="list-group-item"><%= link_to "Calendar", calendar_path %></li>
-            </ul>
-          </div>
+    <div class="container py-4">
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type == 'notice' ? 'success' : 'danger' %> alert-dismissible fade show" role="alert">
+          <%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <div class="col-md-9">
-          <% flash.each do |type, message| %>
-            <div class="alert alert-<%= type == 'notice' ? 'success' : 'danger' %> alert-dismissible fade show" role="alert">
-              <%= message %>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          <% end %>
-          <%= yield %>
-        </div>
-      </div>
+      <% end %>
 
-      <footer class="mt-5 py-3 text-center text-muted">
-        <p>&copy; Meal Planner <%= Date.today.year %></p>
+      <%= yield %>
+
+      <footer class="footer-custom">
+        <p>Meal Planner &copy; <%= Date.today.year %></p>
       </footer>
-
     </div>
 
   </body>

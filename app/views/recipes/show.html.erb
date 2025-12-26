@@ -1,40 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Test</title>
-</head>
-<link rel="stylesheet"href="stylesheets/recipes.css.scss">
+<%- model_class = Recipe -%>
 
-<body><%- model_class = Recipe -%>
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card-custom p-4">
+      <div class="mb-4">
+        <h1 class="mb-2"><%= @recipe.name %></h1>
+        <% if @recipe.cook_on.present? %>
+          <p class="recipe-date mb-0"><%= @recipe.cook_on.strftime("%A, %B %d, %Y") %></p>
+        <% else %>
+          <span class="tag-badge">Unscheduled</span>
+        <% end %>
+      </div>
 
-<div class="page-header">
-  <h1><%=t 'Meals Planned', :default => model_class.model_name.human.titleize %></h1>
-</div>
+      <% if @recipe.tag_list.any? %>
+        <div class="mb-4">
+          <% @recipe.tag_list.each do |tag| %>
+            <%= link_to tag, tag_path(tag), class: "tag-badge me-1" %>
+          <% end %>
+        </div>
+      <% end %>
 
+      <% if @recipe.recipe_description.present? %>
+        <div class="mb-4">
+          <h5 class="text-muted mb-2">Description</h5>
+          <p><%= @recipe.recipe_description %></p>
+        </div>
+      <% end %>
 
+      <% if @recipe.recipe_link.present? %>
+        <div class="mb-4">
+          <h5 class="text-muted mb-2">Recipe Link</h5>
+          <p>
+            <%= link_to @recipe.recipe_link, ensure_protocol(@recipe.recipe_link), target: "_blank", class: "recipe-link" %>
+          </p>
+        </div>
+      <% end %>
 
-<dl class="dl-horizontal">
-  <dt><strong>Recipe Name:</strong></dt>
-  <dd><%= not_applicable? @recipe.name %></dd>
-  <dt><strong>Cook On:</strong></dt>
-  <dd><%= not_applicable? @recipe.cook_on %></dd>
-  <dt><strong>Recipe Link:</strong></dt>
-  <dd><%= not_applicable? @recipe.recipe_link %></dd>
-  <dt><strong>Recipe Description:</strong></dt>
-  <dd><%= not_applicable? @recipe.recipe_description %></dd>
-  <dt><strong>Tags:</strong></dt>
-  <dd><%= not_applicable? @recipe.tag_list %></dd>
-</dl>
+      <hr class="my-4">
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              recipes_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_recipe_path(@recipe), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              recipe_path(@recipe),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+      <div class="action-buttons">
+        <%= link_to "Back to Recipes", recipes_path, class: 'btn btn-outline-secondary' %>
+        <%= link_to "Edit", edit_recipe_path(@recipe), class: 'btn btn-primary' %>
+        <%= link_to "Delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?' }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
 </div>
