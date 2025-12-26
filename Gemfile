@@ -1,72 +1,51 @@
 source 'https://rubygems.org'
-#specify ruby version to enable the deploy to Heroku instance.
-ruby '2.0.0'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+ruby '3.2.2'
+
+gem 'rails', '7.1.5'
+
+# Load environment variables from .env file
+gem 'dotenv-rails', '~> 3.0', groups: [:development, :test]
+
+# The original asset pipeline for Rails
+gem 'sprockets-rails'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-gem 'twitter-bootstrap-rails'
-gem 'therubyracer'
-gem 'less-rails'
-gem 'jquery-ui-rails'
-gem 'bootstrap-datepicker-rails'
-gem 'acts-as-taggable-on'
-gem 'quiet_assets'
-gem 'ransack'
+gem 'sassc-rails', '~> 2.1'
+# Bootstrap 5
+gem 'bootstrap', '~> 5.3'
+gem 'jquery-ui-rails', '~> 7.0'
+gem 'bootstrap-datepicker-rails', '~> 1.10.0'
+gem 'acts-as-taggable-on', '~> 10.0'
+gem 'ransack', '~> 4.1'
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+# Use Terser for JavaScript compression
+gem 'terser', '~> 1.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-	# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-	#gem 'turbolinks'
+# Build JSON APIs with ease
+gem 'jbuilder', '~> 2.11'
 
+# Reduces boot times through caching
+gem 'bootsnap', require: false
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
+# Web server
+gem 'puma', '~> 6.4'
 
 group :development, :test do
-	gem 'rspec-rails'
-	gem 'capybara'
-	# Use sqlite3 as the database for Active Record
-	gem 'sqlite3'
-	gem 'pry-rails'
-	gem 'pry-nav'
-	gem 'thin'
+  gem 'rspec-rails', '~> 6.0'
+  gem 'capybara', '~> 3.40'
+  gem 'sqlite3', '~> 1.7'
+  gem 'pry-rails'
+  gem 'debug'
+end
+
+group :development do
+  gem 'listen', '~> 3.8'
 end
 
 group :production do
-	gem 'rails_12factor'
-	gem 'pg'
+  gem 'pg', '~> 1.5'
 end
-
-
-
-
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]

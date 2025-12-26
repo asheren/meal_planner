@@ -2,45 +2,4 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-/* @import "bootstrap"; */
-* {
-  font-family: "Lucida Grande", arial, helvetica, sans-serif;
-}
-
-/* user profiles */
-.container h1 {
-  height: 40px;
-  width: 110px;
-  color: #f9f41f;
-  background-color: #1fa8f9;
-  padding: 0 10px 10px 10px; 
-}
-
-.page-header {
-  color: #6024a8;
-  font-weight: bold;
-}
-
-/* Table Structure */
-
-tr {
-  color: #07221a;
-  background-color: #b11095;
-}
-
-table {
-  color: #07221a;
-  background-color: #1034b1;
-  border: 4px solid;
-}
-
-#recipe {
-  color: #07221a;
-  background-color: #1034b1;
-}
-
-
-
-
-
+// All recipe styles are now in bootstrap_and_overrides.css.scss

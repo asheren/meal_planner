@@ -1,0 +1,80 @@
+/* @import "bootstrap"; */
+/* Global */
+/* line 8, app/assets/stylesheets/custom.css.scss */
+* {
+  font-family: "Lucida Grande", arial, helvetica, sans-serif;
+}
+
+/* user profiles */
+/* line 13, app/assets/stylesheets/custom.css.scss */
+h1 {
+  height: 40px;
+  color: #f9f41f;
+  background-color: #1fa8f9;
+  padding: 0 10px 10px 10px;
+}
+
+/* line 20, app/assets/stylesheets/custom.css.scss */
+img {
+  margin: 10px;
+  border: 2px black;
+}
+
+/* line 25, app/assets/stylesheets/custom.css.scss */
+img:hover {
+  margin: 10px;
+  border: 5px black;
+  transition-duration: 1s;
+  border-radius: 50%;
+}
+
+/* line 33, app/assets/stylesheets/custom.css.scss */
+.page-header {
+  color: #6024a8;
+  font-weight: bold;
+}
+
+/* Table Structure */
+/* line 40, app/assets/stylesheets/custom.css.scss */
+a {
+  color: #0b0b09;
+}
+
+/* line 44, app/assets/stylesheets/custom.css.scss */
+tbody a:hover {
+  background: #faf82e;
+}
+
+/* line 48, app/assets/stylesheets/custom.css.scss */
+th {
+  color: #07221a;
+  background-color: #dc31ed;
+}
+
+/* line 53, app/assets/stylesheets/custom.css.scss */
+td {
+  color: #0b0b09;
+  background-color: #21a8f2;
+}
+
+/* line 58, app/assets/stylesheets/custom.css.scss */
+table {
+  color: #ffffff;
+  background-color: #21a8f2;
+  border: 4px solid;
+  padding-top: 20px;
+}
+
+/* line 67, app/assets/stylesheets/custom.css.scss */
+.btn {
+  color: #ffffff;
+  margin-bottom: 3px;
+  font-style: italic;
+  font-variant: small-caps;
+}
+
+/* Static Pages */
+/* line 75, app/assets/stylesheets/custom.css.scss */
+iframe {
+  border: 2px dashed gray;
+}

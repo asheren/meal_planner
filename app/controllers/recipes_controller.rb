@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
 
     search = params[:unscheduled_only] ? Recipe.recipes_unscheduled : Recipe.recipes_scheduled
     search = search.tagged_with(params[:tag]) if params[:tag]
-    @search = search.search(params[:q])
+    @search = search.ransack(params[:q])
     @recipes = @search.result
 
     # if params[:scheduled_only]
@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
 
   def unscheduled
     recipes_unscheduled = Recipe.recipes_unscheduled
-    @search = recipes_unscheduled.search(params[:q])
+    @search = recipes_unscheduled.ransack(params[:q])
     @recipes_unscheduled = @search.result
   end
 

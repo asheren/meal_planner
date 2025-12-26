@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
     def set_search
-      @search = Recipe.search(params[:q])
+      @search = Recipe.ransack(params[:q])
       # puts '************'
       # puts search.inspect
       # @search = search.result

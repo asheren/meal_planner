@@ -1,70 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Test</title>
-</head>
 <%- model_class = Recipe -%>
-<link rel="stylesheet" href="stylesheets/custom.css.scss">
 
-<body>
-  <div class="container">
-    <h1> Users</h1>
-      <%= link_to(image_tag("medi.jpg", size: "150x150", :alt => "picture of meredith"), "/tags/Medi meal") %>
-      <%= link_to(image_tag("colin.jpg", size: "150x150", :alt => "picture of colin"), "/tags/colin meal") %>
+<div class="page-header d-flex justify-content-between align-items-center flex-wrap gap-3">
+  <div>
+    <h1>Scheduled Recipes</h1>
+    <p class="subtitle">Meals planned for the upcoming days</p>
   </div>
-</body>
-
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <%= link_to "Add New Recipe", new_recipe_path, class: 'btn btn-primary' %>
 </div>
 
+<div class="d-flex gap-3 mb-4">
+  <%= link_to tag_path("medi") do %>
+    <%= image_tag("medi.jpg", alt: "Filter by Meredith's meals", class: "profile-image") %>
+  <% end %>
+  <%= link_to tag_path("colin") do %>
+    <%= image_tag("colin.jpg", alt: "Filter by Colin's meals", class: "profile-image") %>
+  <% end %>
+</div>
 
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_recipe_path,
-            :class => 'btn btn-large btn-primary' %>
- 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Recipe Name</th>
-      <th>Recipe ID</th>
-      <th>Cook On</th>
-      <th>Recipe Link</th>
-      <th>Recipe Description</th>
-      <th>Tags</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
+<% if @recipes.any? %>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     <% @recipes.sort_by(&:cook_on).each do |recipe| %>
-      <tr>
-        <td><%= recipe.name %></td>
-        <td><%= link_to recipe.id, recipe_path(recipe) %></td>
-        <td><%= recipe.cook_on %></td>
-        <td><%= link_to recipe.recipe_link, recipe.recipe_link, target: "_new" %></td> 
-        <td><%= recipe.recipe_description %></td>
-        <td>
-            <%= raw recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> 
-        </td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_recipe_path(recipe), :class => 'btn btn-mini btn-info' %>
-          <%= link_to t('.cooked', :default => t("helpers.links.cooked")),
-                      recipe_path(recipe,
-                                  :recipe => {:cook_on => nil}),
-                      :method => :put,
-                      :class => 'btn btn-mini btn-success' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      recipe_path(recipe),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
+      <div class="col">
+        <div class="recipe-card">
+          <div class="card-body d-flex flex-column">
+            <div class="recipe-date">
+              <%= recipe.cook_on&.strftime("%A, %B %d") %>
+            </div>
+            <h3 class="recipe-name">
+              <%= link_to recipe.name, recipe_path(recipe), class: "text-decoration-none text-dark" %>
+            </h3>
+            <% if recipe.recipe_description.present? %>
+              <p class="recipe-description"><%= truncate(recipe.recipe_description, length: 80) %></p>
+            <% end %>
+            <% if recipe.recipe_link.present? %>
+              <p class="mb-2">
+                <%= link_to recipe.recipe_link.truncate(30), ensure_protocol(recipe.recipe_link), target: "_blank", class: "recipe-link" %>
+              </p>
+            <% end %>
+            <div class="mb-3">
+              <% recipe.tag_list.each do |tag| %>
+                <%= link_to tag, tag_path(tag), class: "tag-badge me-1" %>
+              <% end %>
+            </div>
+            <div class="action-buttons mt-auto">
+              <%= link_to "Edit", edit_recipe_path(recipe), class: 'btn btn-primary btn-sm' %>
+              <%= link_to "Cooked", recipe_path(recipe, recipe: { cook_on: nil }), method: :put, class: 'btn btn-success btn-sm' %>
+              <%= link_to "Delete", recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-</body>
-</html>
+  </div>
+<% else %>
+  <div class="empty-state card-custom">
+    <h3>No scheduled recipes</h3>
+    <p>Add some recipes and schedule them to see them here!</p>
+    <%= link_to "Add Your First Recipe", new_recipe_path, class: 'btn btn-primary' %>
+  </div>
+<% end %>
