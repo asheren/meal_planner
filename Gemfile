@@ -1,48 +1,51 @@
 source 'https://rubygems.org'
 
-ruby '2.7.8'
+ruby '3.2.2'
 
-gem 'rails', '5.2.8.1'
+gem 'rails', '7.1.5'
 
 # Load environment variables from .env file
-gem 'dotenv-rails', '~> 2.7', groups: [:development, :test]
+gem 'dotenv-rails', '~> 3.0', groups: [:development, :test]
+
+# The original asset pipeline for Rails
+gem 'sprockets-rails'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Using bootstrap-sass instead of twitter-bootstrap-rails (no LESS/therubyracer dependency)
-gem 'bootstrap-sass', '~> 3.4.0'
-gem 'jquery-ui-rails', '~> 6.0'
-gem 'bootstrap-datepicker-rails', '~> 1.9.0'
-gem 'acts-as-taggable-on', '~> 6.0'
-gem 'ransack', '~> 2.3.0'
+gem 'sassc-rails', '~> 2.1'
+# Bootstrap 5
+gem 'bootstrap', '~> 5.3'
+gem 'jquery-ui-rails', '~> 7.0'
+gem 'bootstrap-datepicker-rails', '~> 1.10.0'
+gem 'acts-as-taggable-on', '~> 10.0'
+gem 'ransack', '~> 4.1'
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# Use Terser for JavaScript compression
+gem 'terser', '~> 1.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
 # Build JSON APIs with ease
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.11'
 
 # Reduces boot times through caching
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', require: false
+
+# Web server
+gem 'puma', '~> 6.4'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 4.0'
-  gem 'capybara', '~> 3.0'
-  gem 'sqlite3', '~> 1.3.13'
+  gem 'rspec-rails', '~> 6.0'
+  gem 'capybara', '~> 3.40'
+  gem 'sqlite3', '~> 1.7'
   gem 'pry-rails'
-  gem 'byebug'
+  gem 'debug'
 end
 
 group :development do
-  gem 'listen', '~> 3.0'
+  gem 'listen', '~> 3.8'
 end
 
 group :production do
-  gem 'pg', '~> 1.0'
+  gem 'pg', '~> 1.5'
 end

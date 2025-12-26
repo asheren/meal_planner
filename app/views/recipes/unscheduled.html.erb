@@ -1,22 +1,18 @@
 <%- model_class = Recipe -%>
 
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Unscheduled Recipes</h1>
+  <%= link_to "Add New Recipe", new_recipe_path, class: 'btn btn-primary' %>
 </div>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_recipe_path,
-            :class => 'btn btn-primary' %>
-
-
-<table class="table table-striped">
-  <thead>
+<table class="table table-striped table-hover">
+  <thead class="table-dark">
     <tr>
       <th>ID</th>
       <th>Name</th>
       <th>Link</th>
       <th>Tags</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -24,24 +20,18 @@
       <tr>
         <td><%= link_to recipe.id, recipe_path(recipe) %></td>
         <td><%= recipe.name %></td>
-        <td><%= link_to recipe.recipe_link, recipe.recipe_link, target: "_new" %></td>
-         <td>
-            <%= raw recipe.tag_list.map { |t| link_to t, tag_path(t, unscheduled_only: true) }.join(', ') %> 
+        <td><%= link_to recipe.recipe_link, recipe.recipe_link, target: "_blank" if recipe.recipe_link.present? %></td>
+        <td>
+          <%= raw recipe.tag_list.map { |t| link_to t, tag_path(t, unscheduled_only: true), class: "badge bg-secondary text-decoration-none" }.join(' ') %>
         </td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_recipe_path(recipe), :class => 'btn btn-mini btn-info' %>
-          <%= link_to t('.schedule', :default => t("helpers.links.schedule")),
-                      edit_recipe_path(recipe), :class => 'btn btn-mini btn-success' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      recipe_path(recipe),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+          <div class="btn-group btn-group-sm">
+            <%= link_to "Edit", edit_recipe_path(recipe), class: 'btn btn-primary' %>
+            <%= link_to "Schedule", edit_recipe_path(recipe), class: 'btn btn-success' %>
+            <%= link_to "Delete", recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </div>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-
