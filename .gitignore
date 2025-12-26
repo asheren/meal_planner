@@ -22,3 +22,6 @@
 
 # Ignore bundler installed gems
 /vendor/bundle
+
+# ignore config secret token
+/config/initializers/secret_token.rb
